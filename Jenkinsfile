@@ -21,11 +21,11 @@ pipeline {
             }
         }
 
-        stage('Terraform Apply') {
+        stage('Terraform destory') {
             steps {
                 sh '''
                 cd terraform
-                terraform apply -auto-approve
+                terraform destory -auto-approve
                 '''
             }
         }
@@ -48,12 +48,6 @@ pipeline {
         }
     }
 }
- stage('Terraform Apply') {
-            steps {
-                sh '''
-                cd terraform
-                terraform destroy -auto-approve
-                '''
-            }
+
         }
 
