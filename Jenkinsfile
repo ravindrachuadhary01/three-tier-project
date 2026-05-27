@@ -10,17 +10,28 @@ pipeline {
     }
 
     environment {
-        AWS_DEFAULT_REGION = 'us-east-1'
-        DOCKER_IMAGE = "ravindrachuadhary01/frontend:v1"
+        AWS_REGION = 'ap-south-1'
+        DOCKER_IMAGE = 'ravindrachuadhary01/frontend:v1'
     }
 
     stages {
+
+        /* ---------------- CHECK TOOLS ---------------- */
+        stage('Check Tools') {
+            steps {
+                sh '''
+                aws --version
+                terraform -version
+                docker --version
+                kubectl version --client
+                '''
+            }
+        }
 
         /* ---------------- AWS CHECK ---------------- */
         stage('AWS Identity Check') {
             steps {
                 sh '''
-                aws --version
                 aws sts get-caller-identity
                 '''
             }
@@ -107,7 +118,7 @@ pipeline {
                 expression { params.ACTION == 'destroy' }
             }
             steps {
-                input message: "⚠ Are you sure you want to DESTROY infrastructure?"
+                input message: "⚠ Confirm Terraform Destroy"
             }
         }
 
@@ -127,10 +138,10 @@ pipeline {
 
     post {
         success {
-            echo "Pipeline executed successfully 🚀"
+            echo "Pipeline SUCCESS 🚀"
         }
         failure {
-            echo "Pipeline failed ❌"
+            echo "Pipeline FAILED ❌ Check logs"
         }
     }
 }
