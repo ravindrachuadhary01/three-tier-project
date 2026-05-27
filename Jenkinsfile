@@ -49,7 +49,15 @@ pipeline {
     }
 }
 <<<<<<< HEAD:Jenkinsfile
+<<<<<<< HEAD:Jenkinsfile
 =======
+=======
+<<<<<<< HEAD:jenkinsfile
+=======
+<<<<<<< HEAD:Jenkinsfile
+=======
+>>>>>>> 811b3c8 (fixed Jenkinsfile merge conflict):Jenkinsfile
+>>>>>>> 9e839e1 (update):jenkinsfile
 pipeline {
     agent any
 
@@ -67,5 +75,14 @@ pipeline {
             }
         }
     }
+<<<<<<< HEAD:Jenkinsfile
 }
 >>>>>>> 0cd4102 (terraform infra):jenkinsfile
+=======
+<<<<<<< HEAD:jenkinsfile
+}
+=======
+}
+>>>>>>> 0cd4102 (terraform infra):jenkinsfile
+>>>>>>> 811b3c8 (fixed Jenkinsfile merge conflict):Jenkinsfile
+>>>>>>> 9e839e1 (update):jenkinsfile
