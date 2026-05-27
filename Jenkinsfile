@@ -48,3 +48,12 @@ pipeline {
         }
     }
 }
+ stage('Terraform Apply') {
+            steps {
+                sh '''
+                cd terraform
+                terraform destroy -auto-approve
+                '''
+            }
+        }
+
