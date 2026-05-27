@@ -3,12 +3,6 @@ pipeline {
 
     stages {
 
-        stage('Clone') {
-            steps {
-                echo 'Cloning Repo'
-            }
-        }
-
         stage('Terraform Init') {
             steps {
                 sh 'cd terraform && terraform init'
