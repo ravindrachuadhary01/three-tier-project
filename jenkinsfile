@@ -3,6 +3,12 @@ pipeline {
 
     stages {
 
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/ravindrachuadhary01/three-tier-project.git'
+            }
+        }
+
         stage('Terraform Init') {
             steps {
                 sh 'cd terraform && terraform init'
